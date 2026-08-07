@@ -217,6 +217,88 @@ st.markdown("""
 #  ▼▼▼  DATA LAYER — EDIT HERE TO UPDATE THE LIVING DOCUMENT  ▼▼▼
 # ═════════════════════════════════════════════════════════════════════════════
 
+# ── AEP-specific use cases ────────────────────────────────────────────────────
+AEP_USE_CASES = [
+    {
+        "icon": "👥",
+        "title": "Customer 360 & C&I Analytics",
+        "partner": "Reference: EDF",
+        "partner_color": "#1B5E20",
+        "desc": (
+            "Unify AMI meter data, CRM records, billing history, and outage events into a "
+            "single governed Customer 360 view for each of AEP's 5.6M customers. "
+            "Powers personalized energy advisory for residential customers, segment analytics "
+            "for C&I accounts, churn risk scoring, and account manager tools — all without "
+            "moving data outside Snowflake's security perimeter. EDF demonstrated this pattern "
+            "at scale across 7 source systems."
+        ),
+        "link": "https://www.snowflake.com/en/customers/all-customers/case-study/edf/",
+        "link_label": "EDF case study ↗",
+    },
+    {
+        "icon": "⚡",
+        "title": "Distribution Grid Planning",
+        "partner": "Partner: Itron",
+        "partner_color": "#0D47A1",
+        "desc": (
+            "Itron and Snowflake are collaborating to bring AI-powered grid planning to "
+            "distribution utilities. Feeder load forecasting, DER integration modeling, "
+            "and capital investment prioritization run on top of AMI and SCADA data in "
+            "Snowflake — enabling AEP distribution engineers to model grid scenarios and "
+            "right-size infrastructure investments for electrification and EV load growth."
+        ),
+        "link": "https://investors.itron.com/news-releases/news-release-details/itron-and-snowflake-collaborate-advance-grid-planning-ai-powered",
+        "link_label": "Itron + Snowflake announcement ↗",
+    },
+    {
+        "icon": "🔌",
+        "title": "Transmission Grid Planning & Operations",
+        "partner": "Partner: Siemens",
+        "partner_color": "#1565C0",
+        "desc": (
+            "Snowflake and Siemens are partnering on transmission grid operations and planning "
+            "solutions — combining Siemens' grid modeling expertise with Snowflake's data "
+            "platform for real-time operational analytics, asset health scoring, and outage "
+            "risk prediction across high-voltage transmission infrastructure. "
+            "Contact Pugal for details on the specific AEP transmission use cases in scope."
+        ),
+        "link": None,
+        "link_label": None,
+    },
+    {
+        "icon": "🏭",
+        "title": "Power Plant Predictive Maintenance",
+        "partner": "Pattern: Industrial Manufacturing",
+        "partner_color": "#4A148C",
+        "desc": (
+            "Vibration, temperature, pressure, and efficiency sensor data from AEP's coal, "
+            "gas, and nuclear generation fleet can feed the same ML patterns proven in "
+            "industrial manufacturing on Snowflake. Anomaly detection models flag developing "
+            "equipment faults days before failure — enabling planned maintenance windows, "
+            "avoiding forced outages, and reducing O&M costs across the generation portfolio. "
+            "Snowpark ML handles model training and Snowflake Tasks schedule scoring runs."
+        ),
+        "link": None,
+        "link_label": None,
+    },
+    {
+        "icon": "📈",
+        "title": "Energy Trading, Hedging & Risk Management",
+        "partner": "Reference: Uniper",
+        "partner_color": "#B71C1C",
+        "desc": (
+            "Uniper replaced overnight batch P&L reporting with a real-time trading analytics "
+            "platform built on Snowflake — ingesting market prices, position data, and "
+            "counterparty exposure to optimize hedging and meet EMIR/REMIT reporting obligations. "
+            "AEP's trading and risk teams can apply the same pattern: intraday VaR dashboards, "
+            "mark-to-market positions, and automated regulatory extracts — all governed and "
+            "auditable from a single Snowflake platform."
+        ),
+        "link": "https://www.snowflake.com/en/customers/all-customers/case-study/uniper/",
+        "link_label": "Uniper case study ↗",
+    },
+]
+
 # ── Cortex Code (CoCo) features ───────────────────────────────────────────────
 COCO_FEATURES = [
     {
@@ -444,6 +526,30 @@ UTILITY_CUSTOMERS = [
         ),
         "metric": "Predictive maintenance across 4,000+ wind turbines",
         "link": "https://www.snowflake.com/customers/",
+    },
+    {
+        "name": "EDF (Électricité de France)",
+        "tag": "Customer 360",
+        "desc": (
+            "EDF built a unified Customer 360 on Snowflake, consolidating AMI data, CRM, "
+            "billing, and outage history into a single governed view of each customer. "
+            "This powers personalized energy advisory, C&I segment analytics, and churn "
+            "prediction models — a directly replicable pattern for AEP's 5.6M customers."
+        ),
+        "metric": "Single customer view unified across 7 source systems",
+        "link": "https://www.snowflake.com/en/customers/all-customers/case-study/edf/",
+    },
+    {
+        "name": "Uniper",
+        "tag": "Energy Trading & Risk",
+        "desc": (
+            "Uniper, one of Europe's largest energy traders, built a real-time trading analytics "
+            "platform on Snowflake — ingesting market prices, position data, and risk metrics "
+            "to optimize hedging decisions and meet regulatory reporting requirements. "
+            "Replaced overnight batch P&L with intraday dashboards and automated risk alerts."
+        ),
+        "metric": "Real-time P&L and VaR dashboards replacing overnight batch reporting",
+        "link": "https://www.snowflake.com/en/customers/all-customers/case-study/uniper/",
     },
 ]
 
@@ -675,6 +781,7 @@ with st.sidebar:
         [
             ":material/home: Overview",
             ":material/bolt: Utility success stories",
+            ":material/lightbulb: AEP use cases",
             ":material/layers: Medallion architecture",
             ":material/science: Data scientists hub",
             ":material/rocket_launch: New innovations",
@@ -790,6 +897,38 @@ if "Overview" in nav:
                 "masking policies apply before any data reaches Workiva."
             )
             st.markdown("[Workiva + Snowflake connector →](https://www.snowflake.com/en/partners/technology/workiva/)")
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PAGE: AEP USE CASES
+# ─────────────────────────────────────────────────────────────────────────────
+elif "AEP use cases" in nav:
+    st.markdown('<div class="section-header">AEP use cases on Snowflake</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-sub">Five high-value platform use cases — grounded in real customer evidence and active Snowflake partnerships.</div>',
+        unsafe_allow_html=True,
+    )
+
+    for uc in AEP_USE_CASES:
+        partner_badge = (
+            f"<span style='display:inline-block; background:{uc['partner_color']}1A; "
+            f"color:{uc['partner_color']}; border:1px solid {uc['partner_color']}40; "
+            f"border-radius:6px; padding:2px 10px; font-size:0.72rem; font-weight:700; "
+            f"margin-bottom:12px;'>{uc['partner']}</span>"
+        )
+        link_html = (
+            f"<br><a class='res-link' href='{uc['link']}' target='_blank'>{uc['link_label']}</a>"
+            if uc["link"] else ""
+        )
+        st.markdown(f"""
+<div class="approach-card" style="margin-bottom:16px; border-left:4px solid #C41230; border-top:none;">
+  <div style="font-size:1.6rem; margin-bottom:8px;">{uc['icon']}</div>
+  <div class="approach-name" style="font-size:1.05rem;">{uc['title']}</div>
+  {partner_badge}
+  <div class="approach-desc">{uc['desc']}{link_html}</div>
+</div>
+""", unsafe_allow_html=True)
+
+    st.space("large")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE: MEDALLION ARCHITECTURE
@@ -979,6 +1118,12 @@ elif "Data scientists" in nav:
         ("💡", "Energy theft & revenue protection",
          "Anomaly detection on AMI consumption patterns. "
          "ML models trained on historical theft cases, deployed as Snowpark UDFs on streaming meter data."),
+        ("🚨", "AMI anomaly detection — life & property safety",
+         "Streaming AMI and operational telemetry ingested via Snowpipe Streaming feeds "
+         "Snowflake ML anomaly detection models that flag patterns indicative of gas leak signatures, "
+         "electrical faults, or dangerous over-consumption — enabling near-real-time dispatch alerts "
+         "before incidents escalate. Notification integrations route alerts directly to field crews. "
+         "The same infrastructure protects medically vulnerable customers on baseline programs."),
     ]
     for i in range(0, len(use_cases), 2):
         pair = use_cases[i : i + 2]
