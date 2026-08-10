@@ -896,7 +896,7 @@ if "Overview" in nav:
                 "The Workiva connector pulls from governed Snowflake views via OAuth — "
                 "masking policies apply before any data reaches Workiva."
             )
-            st.markdown("[Workiva + Snowflake connector →](https://app.snowflake.com/marketplace/providers/GZSTZJ2FPN/Workiva)")
+            st.markdown("[Workiva + Snowflake connector →](https://support.workiva.com/hc/en-us/articles/360045993772-Connector-to-Snowflake-JDBC)")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE: AEP USE CASES
